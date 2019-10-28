@@ -5,17 +5,17 @@
   
 
   
-  <title>Hello World | ZKX</title>
+  <title>HashMap | ZKX</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="HashMap中链表长度为什么超过8会转换成红黑树？​        HashMap 在 JDK1.8 及以后的版本中引入了红黑树结构，如果桶中链表的元素个数大于8时，链表将转换成红黑树。若链表中元素个数小于等于6时，则树结构还原为链表。 原因： 1、红黑树的平均查找长度为 log(n) ，长度为 8 的时候，平均查找长度为 3 ，如果继续使用链表，平均查找长度为 8 &#x2F; 2 = 4 ，这才有了转">
 <meta name="keywords" content="Java后端博客">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;23&#x2F;hello-world&#x2F;index.html">
+<meta property="og:title" content="HashMap">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;28&#x2F;HashMap&#x2F;index.html">
 <meta property="og:site_name" content="ZKX">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="HashMap中链表长度为什么超过8会转换成红黑树？​        HashMap 在 JDK1.8 及以后的版本中引入了红黑树结构，如果桶中链表的元素个数大于8时，链表将转换成红黑树。若链表中元素个数小于等于6时，则树结构还原为链表。 原因： 1、红黑树的平均查找长度为 log(n) ，长度为 8 的时候，平均查找长度为 3 ，如果继续使用链表，平均查找长度为 8 &#x2F; 2 = 4 ，这才有了转">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-23T15:57:52.326Z">
+<meta property="og:updated_time" content="2019-10-28T09:16:00.195Z">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="ZKX" type="application/atom+xml">
@@ -67,10 +67,10 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-HashMap" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/10/23/hello-world/" class="article-date">
-  <time datetime="2019-10-23T15:57:52.326Z" itemprop="datePublished">2019-10-23</time>
+    <a href="/2019/10/28/HashMap/" class="article-date">
+  <time datetime="2019-10-28T09:07:18.000Z" itemprop="datePublished">2019-10-28</time>
 </a>
     
   </div>
@@ -81,7 +81,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      HashMap
     </h1>
   
 
@@ -89,24 +89,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <h2 id="HashMap中链表长度为什么超过8会转换成红黑树？"><a href="#HashMap中链表长度为什么超过8会转换成红黑树？" class="headerlink" title="HashMap中链表长度为什么超过8会转换成红黑树？"></a>HashMap中链表长度为什么超过8会转换成红黑树？</h2><p>​        HashMap 在 JDK1.8 及以后的版本中引入了红黑树结构，如果桶中链表的元素个数大于8时，链表将转换成红黑树。若链表中元素个数小于等于6时，则树结构还原为链表。</p>
+<p><strong>原因：</strong></p>
+<p>1、红黑树的平均查找长度为 log(n) ，长度为 8 的时候，平均查找长度为 3 ，如果继续使用链表，平均查找长度为 8 / 2 = 4 ，这才有了转换为树的必要。链表长度如果是小于等于6，6 / 2 = 3 ，肃然速度也很快，但是转换为树结构和生成树的时间并不会太短。</p>
+<p>2、选择 6 和 8 ，中间有个差值 7 可以有效防止链表和树频繁转换。假设一下，如果设计成链表个数超过8则链表转换成树结构，链表个数小于8则树结构转换成链表，如果一个HashMap不停的插入、删除元素，链表个数在8左右徘徊，就会频繁的发生树转链表、链表转树，效率会很低。</p>
+<p>转载至<a href="https://blog.csdn.net/xingfei_work/article/details/79637878" target="_blank" rel="noopener">https://blog.csdn.net/xingfei_work/article/details/79637878</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/23/hello-world/" data-id="ck2a7jtcu0003lg84d0yy39gt" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/28/HashMap/" data-id="ck2a7jtcs0002lg8482iw0s7z" class="article-share-link">Share</a>
       
       
     </footer>
@@ -115,15 +107,11 @@
     
 <nav id="article-nav">
   
-    <a href="/2019/10/24/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          我的第一篇博客
-        
-      </div>
-    </a>
   
+    <a href="/2019/10/28/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">我的博客</div>
+    </a>
   
 </nav>
 

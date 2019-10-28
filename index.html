@@ -68,6 +68,47 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-HashMap" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/10/28/HashMap/" class="article-date">
+  <time datetime="2019-10-28T09:07:18.000Z" itemprop="datePublished">2019-10-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/10/28/HashMap/">HashMap</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="HashMap中链表长度为什么超过8会转换成红黑树？"><a href="#HashMap中链表长度为什么超过8会转换成红黑树？" class="headerlink" title="HashMap中链表长度为什么超过8会转换成红黑树？"></a>HashMap中链表长度为什么超过8会转换成红黑树？</h2><p>​        HashMap 在 JDK1.8 及以后的版本中引入了红黑树结构，如果桶中链表的元素个数大于8时，链表将转换成红黑树。若链表中元素个数小于等于6时，则树结构还原为链表。</p>
+<p><strong>原因：</strong></p>
+<p>1、红黑树的平均查找长度为 log(n) ，长度为 8 的时候，平均查找长度为 3 ，如果继续使用链表，平均查找长度为 8 / 2 = 4 ，这才有了转换为树的必要。链表长度如果是小于等于6，6 / 2 = 3 ，肃然速度也很快，但是转换为树结构和生成树的时间并不会太短。</p>
+<p>2、选择 6 和 8 ，中间有个差值 7 可以有效防止链表和树频繁转换。假设一下，如果设计成链表个数超过8则链表转换成树结构，链表个数小于8则树结构转换成链表，如果一个HashMap不停的插入、删除元素，链表个数在8左右徘徊，就会频繁的发生树转链表、链表转树，效率会很低。</p>
+<p>转载至<a href="https://blog.csdn.net/xingfei_work/article/details/79637878" target="_blank" rel="noopener">https://blog.csdn.net/xingfei_work/article/details/79637878</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/10/28/HashMap/" data-id="ck2a7jtcs0002lg8482iw0s7z" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-我的博客" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/10/28/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2/" class="article-date">
@@ -94,7 +135,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/28/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2/" data-id="ck2a6ynk60002lg840a7deyl5" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/28/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2/" data-id="ck2a7jtcq0001lg8477ry3od3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -130,7 +171,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/25/StringBuilder/" data-id="ck2a6ynk50001lg846k0b5xjx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/25/StringBuilder/" data-id="ck2a7jtck0000lg845ycdasyf" class="article-share-link">Share</a>
       
       
     </footer>
@@ -167,7 +208,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/24/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" data-id="ck2a6ynk80003lg84acrs8lue" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/24/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" data-id="ck2a7jtcv0004lg84970h2btu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -216,7 +257,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/10/23/hello-world/" data-id="ck2a6ynjy0000lg845vvg8w9s" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/10/23/hello-world/" data-id="ck2a7jtcu0003lg84d0yy39gt" class="article-share-link">Share</a>
       
       
     </footer>
@@ -255,6 +296,10 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/10/28/HashMap/">HashMap</a>
+          </li>
         
           <li>
             <a href="/2019/10/28/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2/">我的博客</a>
